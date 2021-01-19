@@ -1,0 +1,122 @@
+﻿
+@{
+    ViewData["Title"] = "Contre";
+}
+
+<h1>Countriessssssss</h1>
+
+<div class="fixed-container">
+    <div class="row cont-pad-top1">
+        <div class="col-md-3 col-sm-4 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center list-header">
+                    <label for="DocumentList">Document List</label>
+                </div>
+                <select name="sometext" id="lbCountry" multiple="multiple" class="form-control list">
+                    @*<option>text1</option>
+                        <option>text2</option>
+                        <option>text3</option>
+                        <option>text4</option>
+                        <option>text5</option>*@
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-7 col-xs-12">
+            <div class="form-group">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <label for="ID">ID</label>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <input type="text" id="id" name="id" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <label for="Code">Code</label>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <input type="text" id="Code" name="Code" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <label for="Description">Description</label>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <input type="text" id="Description" name="Description" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <label for="DescriptionN">Description ( Nep.)</label>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <input type="text" id="DescriptionN" name="DescriptionN" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12 col-sm-12 col-xs-12 block text-right">
+                    <button type="button" class="btn btn-primary">New</button>
+                    <button type="button" class="btn btn-info">Edit</button>
+                    <button type="button" class="btn btn-success">Save</button>
+                    <button type="button" class="btn btn-danger">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-xs-12 col-md-12">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <span class="important"><b>Note :</b> Code and Document Type must be unique. </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        alert('sd');
+        debugger;
+        loadListBox();
+    });
+
+    function loadListBox() {
+        alert('asd');
+        var URL = '/JvAjax/Contre';
+        debugger;
+        $.ajax({
+            type: "GET",
+            url: "URL",
+            contentType: "application/json; chareset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                alert('test');
+                if (data.total_records > 0) {
+                    var obj = data.data;
+                    if (obj == "") {
+                        alert('No Country List to load');
+                        return;
+                    }
+                    var ddlCon = $("[id*=lbCountry]");
+                    ddlCon.empty();
+
+                    $.each(obj, function (i, item) {
+                        var OptionValue = item.CONCODE;
+                        var OptionText = item.DESCRIPTION;
+                        ddlCon.append($("<option></option>").val(OptionValue).html(OptionText));
+                    });
+
+                }
+                else {
+                    alert('No Country List to Load !');
+                }
+            },
+            error: function (response) {
+                alert(response.error);
+            }
+        })
+    }
+</script>
+
