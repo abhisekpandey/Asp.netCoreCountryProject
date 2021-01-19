@@ -1,0 +1,226 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "untitled-font-1";
+  src:url("fonts/untitled-font-1.eot");
+  src:url("fonts/untitled-font-1.eot?#iefix") format("embedded-opentype"),
+    url("fonts/untitled-font-1.woff") format("woff"),
+    url("fonts/untitled-font-1.ttf") format("truetype"),
+    url("fonts/untitled-font-1.svg#untitled-font-1") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "untitled-font-1" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "untitled-font-1" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-balance-sheet:before {
+  content: "\61";
+}
+.icon-calculator:before {
+  content: "\62";
+}
+.icon-claim-assignment:before {
+  content: "\63";
+}
+.icon-claim-registration:before {
+  content: "\64";
+}
+.icon-claim-search:before {
+  content: "\65";
+}
+.icon-collection:before {
+  content: "\66";
+}
+.icon-collection-search:before {
+  content: "\67";
+}
+.icon-ledger-report:before {
+  content: "\68";
+}
+.icon-policy-issue:before {
+  content: "\69";
+}
+.icon-policy-search:before {
+  content: "\6a";
+}
+.icon-proforma-search:before {
+  content: "\6b";
+}
+.icon-voucher-listing:before {
+  content: "\6c";
+}
+.icon-agriculture:before {
+  content: "\6d";
+}
+.icon-car:before {
+  content: "\6e";
+}
+.icon-cow:before {
+  content: "\6f";
+}
+.icon-engineering:before {
+  content: "\70";
+}
+.icon-fire:before {
+  content: "\71";
+}
+.icon-marine:before {
+  content: "\72";
+}
+.icon-miscellaneous:before {
+  content: "\73";
+}
+.icon-plane:before {
+  content: "\74";
+}
+.icon-property:before {
+  content: "\75";
+}
+.icon-aboutus:before {
+  content: "\76";
+}
+.icon-account:before {
+  content: "\77";
+}
+.icon-claim:before {
+  content: "\78";
+}
+.icon-dashboard:before {
+  content: "\79";
+}
+.icon-email:before {
+  content: "\7a";
+}
+.icon-extra:before {
+  content: "\41";
+}
+.icon-help:before {
+  content: "\42";
+}
+.icon-reinsurance:before {
+  content: "\43";
+}
+.icon-report-search:before {
+  content: "\44";
+}
+.icon-search-engine:before {
+  content: "\45";
+}
+.icon-setup:before {
+  content: "\46";
+}
+.icon-switch:before {
+  content: "\47";
+}
+.icon-underwriting:before {
+  content: "\48";
+}
+.icon-add:before {
+  content: "\49";
+}
+.icon-addbank:before {
+  content: "\4a";
+}
+.icon-addbankbranch:before {
+  content: "\4b";
+}
+.icon-addlist:before {
+  content: "\4c";
+}
+.icon-addmember:before {
+  content: "\4d";
+}
+.icon-approve:before {
+  content: "\4e";
+}
+.icon-assignment:before {
+  content: "\4f";
+}
+.icon-attach:before {
+  content: "\50";
+}
+.icon-close:before {
+  content: "\51";
+}
+.icon-edit:before {
+  content: "\52";
+}
+.icon-editbank:before {
+  content: "\53";
+}
+.icon-editbankbranch:before {
+  content: "\54";
+}
+.icon-editmember:before {
+  content: "\55";
+}
+.icon-email-1:before {
+  content: "\56";
+}
+.icon-excesssetup:before {
+  content: "\57";
+}
+.icon-exit:before {
+  content: "\58";
+}
+.icon-fetch:before {
+  content: "\59";
+}
+.icon-gotofirst:before {
+  content: "\5a";
+}
+.icon-gotolast:before {
+  content: "\30";
+}
+.icon-next:before {
+  content: "\31";
+}
+.icon-preview:before {
+  content: "\32";
+}
+.icon-previous:before {
+  content: "\33";
+}
+.icon-print:before {
+  content: "\34";
+}
+.icon-register:before {
+  content: "\35";
+}
+.icon-risk:before {
+  content: "\36";
+}
+.icon-save:before {
+  content: "\37";
+}
+.icon-search:before {
+  content: "\38";
+}
+.icon-searchfile:before {
+  content: "\39";
+}
