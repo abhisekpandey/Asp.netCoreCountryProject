@@ -18,7 +18,7 @@ namespace AjaxCall.DAL
             List<CUser> cuslist = new List<CUser>();
             using (SqlConnection connection = new SqlConnection(_connectionStrings))
             {
-                SqlCommand cmd = new SqlCommand("CountryGetAll", connection);
+                SqlCommand cmd = new SqlCommand("DocumentListbox", connection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 connection.Open();
@@ -27,23 +27,24 @@ namespace AjaxCall.DAL
                 while (rdr.Read())
                 {
                     CUser stu = new CUser();
-                    stu.CONCODE = Convert.ToInt32(rdr["CONCODE"]);
+                    stu.ID = Convert.ToInt32(rdr["ID"]);
                     stu.DESCRIPTION = rdr["DESCRIPTION"].ToString();
                     cuslist.Add(stu);
                 }
                 connection.Close();
             }
             return cuslist;
+
         }
 
-       
+
         public DataTable GetCountryAll1(int ID)
         {
             CUser conlist = new CUser();
             DataTable dt = new DataTable();
             using (SqlConnection connection = new SqlConnection(_connectionStrings))
             {
-                SqlCommand cmd = new SqlCommand("CountryGetAll", connection);
+                SqlCommand cmd = new SqlCommand("DocumentListbox", connection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@CONCODE", ID);
@@ -51,7 +52,7 @@ namespace AjaxCall.DAL
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    conlist.CONCODE = Convert.ToInt32(rdr["CONCODE"]);
+                    conlist.ID = Convert.ToInt32(rdr["ID"]);
                     conlist.DESCRIPTION = rdr["DESCRIPTION"].ToString();                  
                 }
             }

@@ -25,23 +25,23 @@ namespace AjaxCall.Controllers
         [ActionName("List")]
         public IActionResult List()
         {
+               
             return new JsonResult(cdal.GetUserCountry().ToList());
         }
 
 
         [HttpGet]
         [ActionName("List1")]
+        //[Route("~/api/List1")]
         public IEnumerable<CUser> List1()
         {
             List<CUser> students = new List<CUser>();
             students = cdal.GetUserCountry().ToList();
             return students;
+            //return cdal.GetUserCountry();
         }
 
-        //public IActionResult Save()
-        //{
-        //    return View();
-        //}
+       
         [HttpPost]
         public IActionResult Index(CUser ur)
         {
@@ -52,6 +52,37 @@ namespace AjaxCall.Controllers
             }
             return View(ur);
         }
+
+        //public HttpResponseMessage getResponse(DataTable dt)
+        //{
+        //    var properties = Request.GetQueryNameValuePairs();
+        //    if (dt != null)
+        //    {
+        //        var jObject = new
+        //        {
+        //            total_records = dt.Rows.Count,
+        //            response_code = 0,
+        //            data = dt
+        //        };
+        //        var response = Request.CreateResponse(HttpStatusCode.OK);
+        //        response.Content = new StringContent(JsonConvert.SerializeObject(jObject), Encoding.UTF8, "application/json");
+        //        return response;
+        //    }
+        //    else
+        //    {
+        //        var jObject = new
+        //        {
+        //            total_records = 0,
+        //            response_code = 0,
+        //            data = dt
+        //        };
+        //        var response = Request.CreateResponse(HttpStatusCode.OK);
+        //        response.Content = new StringContent(JsonConvert.SerializeObject(jObject), Encoding.UTF8, "application/json");
+        //        return response;
+        //    }
+
+        //}
+
 
 
 

@@ -15,7 +15,7 @@ namespace AjaxCall.Models
         [Display(Name ="English Description")]
         public string DESCRIPTION { get; set; }
 
-        [Display(Name = "English Description")]
+        [Display(Name = "Nepali Description")]
         public string NDESCRIPTION { get; set; }
     }
 }

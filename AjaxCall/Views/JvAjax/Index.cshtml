@@ -45,7 +45,7 @@
                     <div class="panel-heading text-center list-header">
                         <label for="DocumentList">Document List</label>
                     </div>
-                    <select name="sometext" multiple="multiple" class="form-control list">
+                    <select id="lbCountry" name="sometext" multiple="multiple" class="form-control list">
                     </select>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                             <label asp-for="ID"></label>
                         </div>
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                            <input id="id" asp-for="ID" name="id" class="form-control" disabled>
+                            <input id="id" asp-for="ID"  class="form-control" disabled>
                         </div>
                     </div>
                     <div class="form-group">
@@ -64,7 +64,7 @@
                             <label asp-for="CONCODE"></label>
                         </div>
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                            <input id="Code" asp-for="CONCODE" name="Code" class="form-control" disabled>
+                            <input id="Code" asp-for="CONCODE" class="form-control" disabled>
                         </div>
                     </div>
                     <div class="form-group">
@@ -72,7 +72,7 @@
                             <label asp-for="DESCRIPTION"></label>
                         </div>
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                            <input id="Description" type="text" asp-for="DESCRIPTION" name="Description" class="form-control" disabled>
+                            <input id="Description" type="text" asp-for="DESCRIPTION"  class="form-control" disabled>
                         </div>
                     </div>
                     <div class="form-group">
@@ -80,14 +80,14 @@
                             <label asp-for="NDESCRIPTION"></label>
                         </div>
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                            <input id="DescriptionN" type="text" asp-for="NDESCRIPTION" name="NDescription" class="form-control" disabled>
+                            <input id="DescriptionN" type="text" asp-for="NDESCRIPTION"  class="form-control" disabled>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-12 col-sm-12 col-xs-12 block text-right">
                             <input id="btnNew" type="submit" value="New" onclick="btnNew_Click();" class="btn btn-primary" />
                             <input id="btnEdit" type="submit" value="Edit" class="btn btn-info" />
-                            <input id="btnSave" type="submit" value="Save" class="btn btn-success" />
+                            <input id="btnSave" type="submit" value="Save"  class="btn btn-success" />
                             <button id="btnCancel" type="button" class="btn btn-danger" onclick="btnCancel_Click();">Cancel</button>
                             @*<input id="btnCancel" type="submit" value="Cancel" onclick="btnCancel_Click();" class="btn btn-danger" />*@
 
@@ -141,11 +141,11 @@
 
     function loadListBox() {
         //alert('asd');
-        var URL = 'https://localhost:44323/JvAjax/List';
+        //var URL = 'https://localhost:44323/JvAjax/List1';
         debugger;
         $.ajax({
             type: "GET",
-            url: "URL",
+            url: "@Url.Action("List")",
             contentType: "application/json; chareset=utf-8",
             dataType: "json",
             success: function (data) {
@@ -160,15 +160,15 @@
                     ddlCon.empty();
 
                     $.each(obj, function (i, item) {
-                        alert(item.CONCODE);
-                        var OptionValue = item.CONCODE;
+                        alert(item.ID);
+                        var OptionValue = item.ID;
                         var OptionText = item.DESCRIPTION;
                         ddlCon.append($("<option></option>").val(OptionValue).html(OptionText));
                     });
 
                 }
                 else {
-                    alert('No Country List to Load !');
+                    alert('No Document to Load !');
                 }
             },
             error: function (response) {
@@ -177,6 +177,7 @@
         })
     }
 </script>
+
 
 <script>
 
