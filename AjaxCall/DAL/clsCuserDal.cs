@@ -82,6 +82,30 @@ namespace AjaxCall.DAL
             }
         }
 
+        
+        public CUser GetBindinTable(int? ID)
+        {
+            CUser cuser = new CUser();
+            using (SqlConnection connection=new SqlConnection(_connectionStrings))
+            {
+                SqlCommand cmd = new SqlCommand("GetDocByID", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@ID", ID);
+                connection.Open();
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    cuser.ID = Convert.ToInt32(rdr["ID"]);
+                    cuser.CONCODE = Convert.ToInt32(rdr["CONCODE"]);
+                    cuser.DESCRIPTION = rdr["DESCRIPTION"].ToString();
+                    cuser.NDESCRIPTION = rdr["NDESCRIPTION"].ToString();
+                }
+            }
+            return cuser;
+        }
+
 
     }
 }

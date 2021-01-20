@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using AjaxCall.DAL;
 using AjaxCall.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 
 namespace AjaxCall.Controllers
@@ -21,12 +22,53 @@ namespace AjaxCall.Controllers
             return View();
         }
 
+
+        [HttpPost]
+        public IActionResult Index(CUser ur)
+        {
+            if (ModelState.IsValid)
+            {
+                cdal.InsertUser(ur);
+                ViewData["Message"] = " The New User Name " + ur.DESCRIPTION + " Is Saved Succesfully!";
+            }
+            return View(ur);
+        }
+
+
         [HttpGet]
         [ActionName("List")]
-        public IActionResult List()
+        public JsonResult List(int? SelectedItems)
         {
-               
-            return new JsonResult(cdal.GetUserCountry().ToList());
+            try
+                {
+                    var item = cdal.GetUserCountry().ToList();
+                    var items = item.ToList();
+                    if (items != null)
+                    {
+                        List<SelectListItem> lbCountry = new List<SelectListItem>();
+                        foreach (var type in items)
+                        {
+                            SelectListItem selecteditem = new SelectListItem()
+                            {
+                                Text = type.DESCRIPTION,
+                                Value = type.ID.ToString()
+                            };
+                        lbCountry.Add(selecteditem);
+                        }
+                        CUser model = new CUser();
+                        //model.ID = Convert.ToInt32(lbCountry);
+
+                        return Json(items, new Newtonsoft.Json.JsonSerializerSettings());
+                    }
+                    else
+                    {
+                        return Json(null, new Newtonsoft.Json.JsonSerializerSettings());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message.ToString());
+                }            
         }
 
 
@@ -41,47 +83,24 @@ namespace AjaxCall.Controllers
             //return cdal.GetUserCountry();
         }
 
-       
-        [HttpPost]
-        public IActionResult Index(CUser ur)
+        [HttpGet]
+        [ActionName("Details")]
+        public IActionResult Details(int? ID)
         {
-            if (ModelState.IsValid)
+            if (ID == null)
             {
-                cdal.InsertUser(ur);
-                ViewData["Message"]= " The New User Name " + ur.DESCRIPTION + " Is Saved Succesfully!";
+                return NotFound();
             }
-            return View(ur);
+            CUser objcu = cdal.GetBindinTable(ID);
+            if (objcu == null)
+            {
+                return NotFound();
+            }
+            return new JsonResult(objcu);
         }
 
-        //public HttpResponseMessage getResponse(DataTable dt)
-        //{
-        //    var properties = Request.GetQueryNameValuePairs();
-        //    if (dt != null)
-        //    {
-        //        var jObject = new
-        //        {
-        //            total_records = dt.Rows.Count,
-        //            response_code = 0,
-        //            data = dt
-        //        };
-        //        var response = Request.CreateResponse(HttpStatusCode.OK);
-        //        response.Content = new StringContent(JsonConvert.SerializeObject(jObject), Encoding.UTF8, "application/json");
-        //        return response;
-        //    }
-        //    else
-        //    {
-        //        var jObject = new
-        //        {
-        //            total_records = 0,
-        //            response_code = 0,
-        //            data = dt
-        //        };
-        //        var response = Request.CreateResponse(HttpStatusCode.OK);
-        //        response.Content = new StringContent(JsonConvert.SerializeObject(jObject), Encoding.UTF8, "application/json");
-        //        return response;
-        //    }
+      
 
-        //}
 
 
 

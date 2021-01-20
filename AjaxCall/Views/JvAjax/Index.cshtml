@@ -45,7 +45,7 @@
                     <div class="panel-heading text-center list-header">
                         <label for="DocumentList">Document List</label>
                     </div>
-                    <select id="lbCountry" name="sometext" multiple="multiple" class="form-control list">
+                    <select id="lbCountry" name="sometext" multiple="multiple" onclick="bindDocumentDetails();" class="form-control list">
                     </select>
                 </div>
             </div>
@@ -86,8 +86,9 @@
                     <div class="form-group">
                         <div class="col-md-12 col-sm-12 col-xs-12 block text-right">
                             <input id="btnNew" type="submit" value="New" onclick="btnNew_Click();" class="btn btn-primary" />
-                            <input id="btnEdit" type="submit" value="Edit" class="btn btn-info" />
-                            <input id="btnSave" type="submit" value="Save"  class="btn btn-success" />
+                            <button id="btnEdit" type="button" class="btn btn-info" onclick="btnEdit_Click();">Edit</button>
+                            @*<input id="btnEdit" type="submit" value="Edit" onclick="btnEdit_Click();" class="btn btn-info" />*@
+                            <input id="btnSave" type="submit" value="Save" class="btn btn-success" />
                             <button id="btnCancel" type="button" class="btn btn-danger" onclick="btnCancel_Click();">Cancel</button>
                             @*<input id="btnCancel" type="submit" value="Cancel" onclick="btnCancel_Click();" class="btn btn-danger" />*@
 
@@ -134,15 +135,16 @@
     $(document).ready(function () {
         alert('sd');
         debugger;
-        loadListBox();
+        //loadListBox();
+        bindDocumentList();
         document.getElementById('btnEdit').disabled = true;
         document.getElementById('btnSave').disabled = true;
+
     });
 
     function loadListBox() {
         //alert('asd');
         //var URL = 'https://localhost:44323/JvAjax/List1';
-        debugger;
         $.ajax({
             type: "GET",
             url: "@Url.Action("List")",
@@ -176,12 +178,26 @@
             }
         })
     }
+
+    function bindDocumentList() {
+        debugger;
+        $.getJSON('@Url.Action("List1")', function (items) {
+            debugger;
+            //alert(items.id);
+                var listCountry = "";
+                for (var i = 0; i < items.length; i++) {
+                    listCountry += "<option value='" + items[i].id + "'>" + items[i].description + "</option>";
+                }
+                $("#lbCountry").html(listCountry);
+                $("#lbCountry").val($("#lbCountry option:first").val()).change();
+            })
+        }
 </script>
 
 
 <script>
 
-    function btnNew_Click() {
+    function btnNew_Click() {       
         //alert('1');
         //document.getElementById('id').disabled = false;
         document.getElementById('Code').disabled = false;
@@ -208,7 +224,39 @@
         document.getElementById('Code').value = "";
         document.getElementById('Description').value = "";
         document.getElementById('DescriptionN').value = "";
+        document.getElementById('lbCountry').value = "";
     }
+    function btnEdit_Click() {
+        var lbDoc = document.getElementById('lbCountry').val;
+        if (lbDoc == "") {
+            alert('Please Select Document form the list');
+        }
+        else {
+
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    function bindDocumentDetails() {
+        debugger;
+        $.ajax({
+                url: '@Url.Action("Details", "JvAjax")',
+                data: { SelectedItems: $(this).val() },
+                traditional: true,
+                success: function (details) {
+                    $("#id").val(details.ID);
+                    $("#Code").val(details.CONCODE);
+                    $("#Description").val(details.DESCRIPTION);
+                    $("#DescriptionN").val(details.NDESCRIPTION);
+
+
+                    $("#btnCancel").prop('disabled', false);
+                    $("#btnEdit").prop('disabled', false);
+                    $("#btnNew").prop('disabled', true);
+                }
+            });
+        }
 </script>
 
 

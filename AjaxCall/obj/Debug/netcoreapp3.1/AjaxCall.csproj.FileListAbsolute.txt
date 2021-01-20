@@ -397,8 +397,16 @@ C:\Users\ensure\source\repos\AjaxCall\AjaxCall\bin\Debug\netcoreapp3.1\runtimes\
 C:\Users\ensure\source\repos\AjaxCall\AjaxCall\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 C:\Users\ensure\source\repos\AjaxCall\AjaxCall\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\ensure\source\repos\AjaxCall\AjaxCall\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\ensure\source\repos\AjaxCall\AjaxCall\obj\Debug\netcoreapp3.1\Razor\Views\JvAjax\Contre.cshtml.g.cs
 C:\Users\ensure\source\repos\AjaxCall\AjaxCall\obj\Debug\netcoreapp3.1\AjaxCall.csproj.CoreCompileInputs.cache
 C:\Users\ensure\source\repos\AjaxCall\AjaxCall\obj\Debug\netcoreapp3.1\AjaxCall.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\ensure\source\repos\AjaxCall\AjaxCall\obj\Debug\netcoreapp3.1\AjaxCall.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\ensure\source\repos\AjaxCall\AjaxCall\obj\Debug\netcoreapp3.1\Razor\Views\JvAjax\Contre.cshtml.g.cs
+C:\Users\ensure\source\repos\AjaxCall\AjaxCall\bin\Debug\netcoreapp3.1\System.Web.Mvc.dll
+C:\Users\ensure\source\repos\AjaxCall\AjaxCall\bin\Debug\netcoreapp3.1\System.Web.Razor.dll
+C:\Users\ensure\source\repos\AjaxCall\AjaxCall\bin\Debug\netcoreapp3.1\System.Web.Helpers.dll
+C:\Users\ensure\source\repos\AjaxCall\AjaxCall\bin\Debug\netcoreapp3.1\System.Web.WebPages.Deployment.dll
+C:\Users\ensure\source\repos\AjaxCall\AjaxCall\bin\Debug\netcoreapp3.1\System.Web.WebPages.Razor.dll
+C:\Users\ensure\source\repos\AjaxCall\AjaxCall\bin\Debug\netcoreapp3.1\System.Web.WebPages.dll
+C:\Users\ensure\source\repos\AjaxCall\AjaxCall\bin\Debug\netcoreapp3.1\Microsoft.Web.Infrastructure.dll
+C:\Users\ensure\source\repos\AjaxCall\AjaxCall\obj\Debug\netcoreapp3.1\Razor\Views\Facility\Index.cshtml.g.cs
 C:\Users\ensure\source\repos\AjaxCall\AjaxCall\obj\Debug\netcoreapp3.1\AjaxCall.csprojAssemblyReference.cache

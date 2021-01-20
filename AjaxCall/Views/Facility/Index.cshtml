@@ -1,0 +1,135 @@
+﻿@model FacilityModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="form-horizontal">
+    <div class="row fixed-header">
+        <div class="col-sm-12 col-md-12">
+            <div class="page-header-container fixed-padding">
+                <h4 class="page-header">
+                    Other Facilities
+                </h4>
+            </div>
+        </div>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        <div class="form-group cont-pad-top2">
+            <div class="col-md-3 col-sm-4 col-xs-12">
+                <div class="panel-heading text-center list-header">
+                    <label class="control-label">OtherFacilitiesList</label>
+                </div>
+                <div class="panel panel-default">
+                    <select asp-for="OtherFacilitiesList" style="width:200px; height:200px;" class="form-control" ></select>
+                    @*@Html.ListBoxFor(m => m.OtherFacilitiesList, Model.OtherFacilities, new { id = "otherfacilitieslist", @class = "form-control" })*@
+                </div>
+            </div>
+            <div class="col-md-5 col-sm-8 col-xs-12">
+                <div class="form-group">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <label asp-for="OTHERFACID" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <input asp-for="OTHERFACID" class="form-control" readonly="true" id="txtotherfacilitiesid" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <label asp-for="OTHERFACNAME" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <input asp-for="OTHERFACNAME" class="form-control" id="txtotherfacilitiesname" />
+                        @Html.ValidationMessageFor(m => m.OTHERFACNAME)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <label asp-for="ABBV" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <input asp-for="ABBV" class="form-control" id="txtabbv" />
+                        @Html.ValidationMessageFor(m => m.ABBV)
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <label asp-for="IncomeTypeList" class="control-label"></label>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <select asp-for="IncomeTypeList" id="incometypelist"
+                                asp-items="@(new SelectList("Id","IncomeTypes"))">
+                            <option>Please select one</option>
+                        </select>
+                        @*@Html.DropDownListFor(m => m.IncomeTypeList, Model.IncomeTypes, new { id = "incometypelist", @class = "form-control" })*@
+
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12 margintop">
+                        <select asp-for="MonthList" id="monthslist"
+                                asp-items="@(new SelectList("Id","Months"))">
+                            <option>Please select one</option>
+                        </select>
+                        @*@Html.DropDownListFor(m => m.MonthList, Model.Months, new { id = "monthslist", @class = "form-control" })*@
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <label asp-for="TaxableFlags" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <select asp-for="TaxableFlags" id="taxableflaglist"
+                                asp-items="@(new SelectList("Id","TaxableFlags"))">
+                            <option>Please select one</option>
+                        </select>
+                        @*@Html.DropDownListFor(m => m.TaxableFlagList, Model.TaxableFlags, new { id = "taxableflaglist", @class = "form-control" })*@
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <label asp-for="OtherFacilitiesCategories" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <select asp-for="OtherFacilitiesCategories" id="otherfacilitiescategorieslist"
+                                asp-items="@(new SelectList("Id","OtherFacilitiesCategories"))">
+                            <option>Please select one</option>
+                        </select>
+                        @*@Html.DropDownListFor(m => m.OtherFacilitiesCategoriesList, Model.OtherFacilitiesCategories, new { id = "otherfacilitiescategorieslist", @class = "form-control" })*@
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <label asp-for="AMTEXEMPTED" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <input asp-for="AMTEXEMPTED" id="txtamtexempted" class="form-control" />
+                        @Html.ValidationMessageFor(m => m.AMTEXEMPTED)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <label asp-for="AMTEXEMPTEDPER" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <input asp-for="AMTEXEMPTEDPER" id="txtamtexemptedper" class="form-control" />
+                        @Html.ValidationMessageFor(m => m.AMTEXEMPTEDPER)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12 col-sm-12 col-xs-12 text-right">
+                        @if (User.IsInRole("A"))
+                        {
+                            <input type="submit" name="Add" value="Add" class="btn btn-primary" id="btnAdd" />
+                            <input type="submit" name="Edit" value="Update" class="btn btn-primary" id="btnupdate" />
+                            <input type="submit" name="Delete" value="Delete" class="btn btn-primary" id="btndelete" />
+                            <input type="button" name="Cancel" value="Cancel" class="btn btn-primary" id="btncancel" />
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
