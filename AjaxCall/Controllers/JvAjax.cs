@@ -22,7 +22,6 @@ namespace AjaxCall.Controllers
             return View();
         }
 
-
         [HttpPost]
         public IActionResult Index(CUser ur)
         {
@@ -99,11 +98,6 @@ namespace AjaxCall.Controllers
             return new JsonResult(objcu);
         }
 
-      
-
-
-
-
-
+     
     }
 }

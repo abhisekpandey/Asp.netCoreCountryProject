@@ -39,73 +39,73 @@
     }
 </style>
 <div class="fixed-container">
-        <div class="row cont-pad-top1">
-            <div class="col-md-3 col-sm-4 col-xs-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading text-center list-header">
-                        <label for="DocumentList">Document List</label>
-                    </div>
-                    <select id="lbCountry" name="sometext" multiple="multiple" onclick="bindDocumentDetails();" class="form-control list">
-                    </select>
+    <div class="row cont-pad-top1">
+        <div class="col-md-3 col-sm-4 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center list-header">
+                    <label for="DocumentList">Document List</label>
                 </div>
+                <select id="lbCountry" onclick="bindDocumentDetails();" name="sometext" multiple="multiple" class="form-control list">
+                </select>
             </div>
-            <div class="col-md-4 col-sm-7 col-xs-12">
-                <form asp-action="Index" autocomplete="on">
-                    <div class="form-group">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <label asp-for="ID"></label>
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <input id="id" asp-for="ID"  class="form-control" disabled>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <label asp-for="CONCODE"></label>
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <input id="Code" asp-for="CONCODE" class="form-control" disabled>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <label asp-for="DESCRIPTION"></label>
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <input id="Description" type="text" asp-for="DESCRIPTION"  class="form-control" disabled>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <label asp-for="NDESCRIPTION"></label>
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <input id="DescriptionN" type="text" asp-for="NDESCRIPTION"  class="form-control" disabled>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-12 col-sm-12 col-xs-12 block text-right">
-                            <input id="btnNew" type="submit" value="New" onclick="btnNew_Click();" class="btn btn-primary" />
-                            <button id="btnEdit" type="button" class="btn btn-info" onclick="btnEdit_Click();">Edit</button>
-                            @*<input id="btnEdit" type="submit" value="Edit" onclick="btnEdit_Click();" class="btn btn-info" />*@
-                            <input id="btnSave" type="submit" value="Save" class="btn btn-success" />
-                            <button id="btnCancel" type="button" class="btn btn-danger" onclick="btnCancel_Click();">Cancel</button>
-                            @*<input id="btnCancel" type="submit" value="Cancel" onclick="btnCancel_Click();" class="btn btn-danger" />*@
-
-                        </div>
-                    </div>
-                    <b>@ViewData["Message"]</b>
-                </form>
-            </div>
-
-            <div class="col-sm-12 col-xs-12 col-md-12">
-                <div class="row">
+        </div>
+        <div class="col-md-4 col-sm-7 col-xs-12">
+            <form asp-action="Index" autocomplete="on">
+                <div class="form-group">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        <span class="important"><b>Note :</b> Code and Document Type must be unique. </span>
+                        <label asp-for="ID"></label>
                     </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <input id="id" asp-for="ID" class="form-control" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <label asp-for="CONCODE"></label>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <input id="Code" asp-for="CONCODE" class="form-control" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <label asp-for="DESCRIPTION"></label>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <input id="Description" type="text" asp-for="DESCRIPTION" class="form-control" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <label asp-for="NDESCRIPTION"></label>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <input id="DescriptionN" type="text" asp-for="NDESCRIPTION" class="form-control" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12 col-sm-12 col-xs-12 block text-right">
+                        <input id="btnNew" type="submit" value="New" onclick="btnNew_Click();" class="btn btn-primary" />
+                        <button id="btnEdit" type="button" class="btn btn-info" onclick="btnEdit_Click();">Edit</button>
+                        @*<input id="btnEdit" type="submit" value="Edit" onclick="btnEdit_Click();" class="btn btn-info" />*@
+                        <input id="btnSave" type="submit" value="Save" class="btn btn-success" />
+                        <button id="btnCancel" type="button" class="btn btn-danger" onclick="btnCancel_Click();">Cancel</button>
+                        @*<input id="btnCancel" type="submit" value="Cancel" onclick="btnCancel_Click();" class="btn btn-danger" />*@
+
+                    </div>
+                </div>
+                <b>@ViewData["Message"]</b>
+            </form>
+        </div>
+
+        <div class="col-sm-12 col-xs-12 col-md-12">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <span class="important"><b>Note :</b> Code and Document Type must be unique. </span>
                 </div>
             </div>
         </div>
+    </div>
 </div>
 
 
@@ -126,10 +126,11 @@
 
 
 @*@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}*@
-<script src="C:\Users\ensure\source\repos\AjaxCall\AjaxCall\Scripts\cuse.js"></script>
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }*@
+@*<script src="~/Scripts/jquery-1.9.1.js"></script>*@
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
 <script type="text/javascript">
 
     $(document).ready(function () {
@@ -139,9 +140,9 @@
         bindDocumentList();
         document.getElementById('btnEdit').disabled = true;
         document.getElementById('btnSave').disabled = true;
-
+        $("#btnEdit").prop('disabled', false);
+        document.getElementById('lbCountry').value = "";
     });
-
     function loadListBox() {
         //alert('asd');
         //var URL = 'https://localhost:44323/JvAjax/List1';
@@ -189,7 +190,7 @@
                     listCountry += "<option value='" + items[i].id + "'>" + items[i].description + "</option>";
                 }
                 $("#lbCountry").html(listCountry);
-                $("#lbCountry").val($("#lbCountry option:first").val()).change();
+                //$("#lbCountry").val($("#lbCountry option:first").val()).change();
             })
         }
 </script>
@@ -197,7 +198,7 @@
 
 <script>
 
-    function btnNew_Click() {       
+    function btnNew_Click() {
         //alert('1');
         //document.getElementById('id').disabled = false;
         document.getElementById('Code').disabled = false;
@@ -215,7 +216,6 @@
         document.getElementById('btnEdit').disabled = false;
         document.getElementById('btnSave').disabled = true;
         document.getElementById('btnNew').disabled = false;
-        document.getElementById('btnEdit').disabled = true;
         document.getElementById('btnCancel').disabled = false;
         clearTextBox();
     }
@@ -225,9 +225,11 @@
         document.getElementById('Description').value = "";
         document.getElementById('DescriptionN').value = "";
         document.getElementById('lbCountry').value = "";
+
     }
     function btnEdit_Click() {
-        var lbDoc = document.getElementById('lbCountry').val;
+        debugger;
+        var lbDoc = document.getElementById('lbCountry').value;
         if (lbDoc == "") {
             alert('Please Select Document form the list');
         }
@@ -239,9 +241,10 @@
 
 <script type="text/javascript">
     function bindDocumentDetails() {
-        debugger;
+        debugger;        
         $.ajax({
-                url: '@Url.Action("Details", "JvAjax")',
+            url: '@Url.Action("Details", "JvAjax")',
+            type:"GET",
                 data: { SelectedItems: $(this).val() },
                 traditional: true,
                 success: function (details) {
@@ -256,8 +259,25 @@
                     $("#btnNew").prop('disabled', true);
                 }
             });
-        }
+    }
+
 </script>
+@*<script type="text/javascript">
+        $(document).ready(function () {
+            debugger;
+            $("#lbCountry").click(function () {
+                //$("#btnAdd").prop('disabled', true);
+                $.getJSON('@Url.Action("Details", "JvAjax")', { SelectedItems: $(this).val() }, function (details) {
+                    $("#id").val(details.ID);
+                    $("#Code").val(details.CONCODE);
+                    $("#Description").val(details.DESCRIPTION);
+                    $("#DescriptionN").val(details.NDESCRIPTION);
+                    //$("#btnCancel").prop('disabled', false);
+                    //$("#btnUpdate").prop('disabled', false);
+                    //$("#btnDelete").prop('disabled', false);
+                })
+            })
+    </script>*@
 
 
 
